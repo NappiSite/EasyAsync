@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace NappiSite.EasyAsync
 {
-    public sealed class AsyncLock : IDisposable
+    public class AsyncLock : IDisposable
     {
         private readonly SemaphoreSlim _lock;
         private bool _disposedValue;
@@ -24,7 +24,7 @@ namespace NappiSite.EasyAsync
             return _lock.Release();
         }
 
-        protected void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (!_disposedValue)
             {
