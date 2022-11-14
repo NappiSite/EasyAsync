@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace NappiSite.EasyAsync
 {
-    public class AsyncLocker : IDisposable
+    public sealed class AsyncLocker : IDisposable
     {
         private readonly ConcurrentDictionary<string, AsyncLock> _locks;
         private bool _disposedValue;
@@ -20,7 +20,7 @@ namespace NappiSite.EasyAsync
             return l;
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (!_disposedValue)
             {

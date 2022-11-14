@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace NappiSite.EasyAsync
 {
-    public class AsyncLock : IDisposable
+    public sealed class AsyncLock : IDisposable
     {
-        private SemaphoreSlim _lock;
+        private readonly SemaphoreSlim _lock;
         private bool _disposedValue;
 
         public AsyncLock()
@@ -26,7 +24,7 @@ namespace NappiSite.EasyAsync
             return _lock.Release();
         }
 
-        protected virtual void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (!_disposedValue)
             {
