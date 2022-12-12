@@ -1,18 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>EasyAsync</Title>
-    <Company>NappiSiter</Company>
+    <Company>NappiSite</Company>
     <Copyright>2022</Copyright>
     <PackageProjectUrl>https://github.com/NappiSite/EasyAsync</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NappiSite/EasyAsync</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ApplicationIcon>nappisite.ico</ApplicationIcon>
+    <Version>1.0.1</Version>
+    <PackageIcon>nappisite.jpg</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="nappisite.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\NappiCloud\nappisite.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
