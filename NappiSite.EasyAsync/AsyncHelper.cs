@@ -21,31 +21,16 @@ namespace NappiSite.EasyAsync
             return ParallelForEachAsync(source,  body,1);
         }
 
-        public static async Task ParallelForEachAsync<T>(this IEnumerable<T> source, 
-            Func<T, Task> body,int degreeOfParallelism)
-        {
-            using (var semaphore = new SemaphoreSlim(degreeOfParallelism, degreeOfParallelism))
-            {
-                var tasks = source.Select(async item =>
-                {
-                    await semaphore.WaitAsync();
-                    try
-                    {
-                        await body(item);
-                    }
-                    finally
-                    {
-                        semaphore.Release();
-                    }
-                });
-                await Task.WhenAll(tasks);
-            }
-        }
-
-        public static async Task ParallelForEachAsync<T>(this IEnumerable<T> source, 
+        public static Task ParallelForEachAsync<T>(this IEnumerable<T> source, 
             Func<T, Task> body)
         {
             var degreeOfParallelism=Environment.ProcessorCount;
+            return ParallelForEachAsync(source,  body,degreeOfParallelism);
+        }
+
+        public static async Task ParallelForEachAsync<T>(this IEnumerable<T> source, 
+            Func<T, Task> body,int degreeOfParallelism)
+        {
             using (var semaphore = new SemaphoreSlim(degreeOfParallelism, degreeOfParallelism))
             {
                 var tasks = source.Select(async item =>
