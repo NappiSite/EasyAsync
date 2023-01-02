@@ -11,8 +11,9 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <ApplicationIcon>nappisite.ico</ApplicationIcon>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <PackageIcon>nappisite.jpg</PackageIcon>
+    <PackageTags>async;ForEachAsync;AsyncLock;ParallelForEachAsync</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
